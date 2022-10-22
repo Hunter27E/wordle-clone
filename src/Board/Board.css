@@ -1,0 +1,78 @@
+.board {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	margin-bottom: 2rem;
+}
+
+.boardRow {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+
+	width: max-content;
+	margin-inline: auto;
+}
+
+.boardRow.invalid {
+	outline: 2px solid red;
+}
+
+/* one-by-one change color of square after user submits guess */
+@keyframes fadeInColor {
+	from {
+		background-color: transparent;
+	}
+	to {
+		background-color: var(--squareColor);
+	}
+}
+
+.boardSquare {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 65px;
+	height: 65px;
+	border: 2px solid #3a3a3c;
+
+	font-size: 2em;
+
+	animation-name: fadeInColor;
+	animation-duration: 0.5s;
+	animation-delay: var(--delay);
+	animation-fill-mode: forwards;
+}
+.boardSquare:nth-child(1) {
+	--delay: 0s;
+}
+.boardSquare:nth-child(2) {
+	--delay: 0.5s;
+}
+.boardSquare:nth-child(3) {
+	--delay: 1s;
+}
+.boardSquare:nth-child(4) {
+	--delay: 1.5s;
+}
+.boardSquare:nth-child(5) {
+	--delay: 2s;
+}
+
+.boardSquare.empty {
+	background-color: transparent;
+}
+
+.boardSquare.incorrect {
+	--squareColor: #3a393c;
+}
+
+.boardSquare.partiallyCorrect {
+	--squareColor: #b5a13b;
+}
+
+.boardSquare.correct {
+	--squareColor: #538d4e;
+}

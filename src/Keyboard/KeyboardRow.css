@@ -1,0 +1,32 @@
+.keyboardRow {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.keyboardLetter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 50px;
+	height: 50px;
+	border: none;
+	border-radius: 0.35rem;
+
+	background-color: #818384;
+
+	cursor: pointer;
+}
+
+.keyboardLetter.incorrect {
+	background-color: #3a393c;
+}
+
+.keyboardLetter.partiallyCorrect {
+	background-color: #b5a13b;
+}
+
+.keyboardLetter.correct {
+	background-color: #538d4e;
+}
