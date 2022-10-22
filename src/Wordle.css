@@ -4,6 +4,12 @@
 	text-align: center;
 }
 
+@keyframes fadeInResults {
+	to {
+		opacity: 1;
+	}
+}
+
 .gameResults {
 	display: flex;
 	flex-direction: column;
@@ -14,6 +20,13 @@
 
 	inset: 0;
 	padding-top: 4rem;
+
+	opacity: 0;
+
+	animation-name: fadeInResults;
+	animation-delay: 2.5s;
+	animation-fill-mode: forwards;
+	animation-duration: 0.1s;
 }
 
 .gameResults.WON {
@@ -25,16 +38,18 @@
 }
 
 .target {
+	display: inline-block;
+
 	padding: 0.25rem 0.5rem;
 	margin-left: 0.5rem;
 
-	color: #538d4e;
+	color: var(--clrCorrect); /* even if user loses */
 	background-color: hsla(0, 0%, 100%, 0.65);
 }
 
 .playAgainBtn {
 	margin-top: 2rem;
-	border: 2px solid whitesmoke;
+	border: 2px solid var(--clrWhite);
 	border-radius: 0.35rem;
 	padding: 0.5rem 1rem;
 
@@ -44,9 +59,9 @@
 }
 
 .WON .playAgainBtn {
-	background-color: #538d4e;
+	background-color: var(--clrCorrect);
 }
 
 .LOST .playAgainBtn {
-	background-color: #8d534e;
+	background-color: var(--clrLost);
 }

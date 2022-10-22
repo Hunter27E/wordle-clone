@@ -20,7 +20,7 @@
 	border: none;
 	border-radius: 0.35rem;
 
-	background-color: #818384;
+	background-color: var(--clrNeutral);
 
 	cursor: pointer;
 }

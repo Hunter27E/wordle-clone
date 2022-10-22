@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
+:root {
+	--clrCorrect: #538d4e;
+	--clrPartiallyCorrect: #b5a13b;
+	--clrIncorrect: #3a393c;
+	--clrNeutral: #818384;
+	--clrLost: #8d534e;
+	--clrWhite: whitesmoke;
+	--clrBlack: #121213;
+}
+
 *,
 *::before,
 *::after {
@@ -9,8 +19,8 @@
 }
 
 html {
-	background-color: #121213;
-	color: whitesmoke;
+	background-color: var(--clrBlack);
+	color: var(--clrWhite);
 	font-family: 'Poppins', sans-serif;
 }
 

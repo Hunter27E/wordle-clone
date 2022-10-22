@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { KeyboardRow } from './KeyboardRow'
+
 import {
 	KEYBOARD_TOP_ROW,
 	KEYBOARD_MID_ROW,

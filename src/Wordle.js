@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { Board } from './Board/Board'
 import { Keyboard } from './Keyboard/Keyboard'
+
 import {
 	GAME_STATUS,
 	WORD_VALIDATOR,

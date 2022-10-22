@@ -14,19 +14,19 @@
 	border: none;
 	border-radius: 0.35rem;
 
-	background-color: #818384;
+	background-color: var(--clrNeutral);
 
 	cursor: pointer;
 }
 
 .keyboardLetter.incorrect {
-	background-color: #3a393c;
+	background-color: var(--clrIncorrect);
 }
 
 .keyboardLetter.partiallyCorrect {
-	background-color: #b5a13b;
+	background-color: var(--clrPartiallyCorrect);
 }
 
 .keyboardLetter.correct {
-	background-color: #538d4e;
+	background-color: var(--clrCorrect);
 }

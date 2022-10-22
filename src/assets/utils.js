@@ -1,3 +1,4 @@
+// https://rapidapi.com/twinword/api/word-dictionary
 export const WORD_VALIDATOR = {
 	URL: 'https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=',
 	OPTIONS: {
@@ -10,6 +11,7 @@ export const WORD_VALIDATOR = {
 	SUCCESS_MSG: 'Success',
 }
 
+// https://rapidapi.com/sheharyar566/api/random-words5
 export const RANDOM_WORD_GENERATOR = {
 	URL: 'https://random-words5.p.rapidapi.com/getMultipleRandom?count=20&wordLength=5',
 	OPTIONS: {
@@ -37,17 +39,6 @@ export const GAME_STATUS = {
 
 export const LETTERS = new Set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''))
 
-export const KEYBOARD_TOP_ROW = [
-	'Q',
-	'W',
-	'E',
-	'R',
-	'T',
-	'Y',
-	'U',
-	'I',
-	'O',
-	'P',
-]
-export const KEYBOARD_MID_ROW = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L']
-export const KEYBOARD_BOT_ROW = ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+export const KEYBOARD_TOP_ROW = 'QWERTYUIOP'.split('')
+export const KEYBOARD_MID_ROW = 'ASDFGHJKL'.split('')
+export const KEYBOARD_BOT_ROW = 'ZXCVBNM'.split('')

@@ -16,7 +16,7 @@
 }
 
 .boardRow.invalid {
-	outline: 2px solid red;
+	outline: 2px solid var(--clrLost);
 }
 
 /* one-by-one change color of square after user submits guess */
@@ -66,13 +66,13 @@
 }
 
 .boardSquare.incorrect {
-	--squareColor: #3a393c;
+	--squareColor: var(--clrIncorrect);
 }
 
 .boardSquare.partiallyCorrect {
-	--squareColor: #b5a13b;
+	--squareColor: var(--clrPartiallyCorrect);
 }
 
 .boardSquare.correct {
-	--squareColor: #538d4e;
+	--squareColor: var(--clrCorrect);
 }
