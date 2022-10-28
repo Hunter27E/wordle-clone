@@ -14,6 +14,16 @@ import {
 
 import './Wordle.css'
 
+// checks a word against the Dictionary API to ensure it is a valid word
+const isValidWord = async (word) => {
+	const validatorRes = await fetch(
+		`${WORD_VALIDATOR.URL}${word}`,
+		WORD_VALIDATOR.OPTIONS
+	)
+	const validatorMsg = await validatorRes.json()
+	return validatorMsg.result_msg === WORD_VALIDATOR.SUCCESS_MSG
+}
+
 export const Wordle = () => {
 	const [target, setTarget] = useState([])
 	const [nextTargets, setNextTargets] = useState([])
@@ -34,13 +44,8 @@ export const Wordle = () => {
 		}
 		if (guesses.length === 6) return
 
-		// validate guess: must be real 5-letter word
-		const validatorRes = await fetch(
-			`${WORD_VALIDATOR.URL}${guess.join('')}`,
-			WORD_VALIDATOR.OPTIONS
-		)
-		const validatorMsg = await validatorRes.json()
-		if (validatorMsg.result_msg !== WORD_VALIDATOR.SUCCESS_MSG) {
+		// validate guess: must be real 5-letter word (if not, show user guess is invalid)
+		if (!(await isValidWord(guess.join('')))) {
 			setGuessIsInvalid(true)
 			return
 		}
@@ -98,15 +103,24 @@ export const Wordle = () => {
 		return GAME_STATUS.PENDING
 	}
 
-	// fetch random 5-letter words for multiple games
+	// fetch 20 random 5-letter words for multiple games
 	const getTargets = async () => {
 		const randomWordGeneratorRes = await axios.request(
 			RANDOM_WORD_GENERATOR.OPTIONS
 		)
 		const randomWords = randomWordGeneratorRes.data
 
-		const target = randomWords[0].toUpperCase().split('')
-		const nextTargets = randomWords
+		// filter out words that Dictionary API doesn't consider to be real words
+		const randomWordValidities = await Promise.all(
+			randomWords.map(isValidWord)
+		)
+		// filter needs all promises resolved before executing, so we use Promise.all beforehand
+		const filteredRandomWords = randomWords.filter(
+			(_, i) => randomWordValidities[i]
+		)
+
+		const target = filteredRandomWords[0].toUpperCase().split('')
+		const nextTargets = filteredRandomWords
 			.slice(1)
 			.map((word) => word.toUpperCase().split(''))
 
